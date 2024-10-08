@@ -12,6 +12,7 @@ jobs:
             #cache-dependency-path: ./tailwind/package-lock.json
       - name: install dependencies
         run: npm ci
+        working-directory: ./tailwind
       - name: Run tests
         run: npm run test:ci
         working-directory: ./tailwind
