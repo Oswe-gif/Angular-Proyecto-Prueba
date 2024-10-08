@@ -1,9 +1,9 @@
 on:
     pull_request:
-      branches: ["main"]
+      branches: ["develop"]
 jobs:
-  CI-main:
-    name: CI-main
+  CI-develop:
+    name: CI-develop
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -27,10 +27,10 @@ jobs:
           file: ./tailwind/Dockerfile
           push: true
           tags: |
-            oswe/tech-trend-emporium-test-prod:${{ github.sha }}
-            oswe/tech-trend-emporium-test-prod:latest
+            oswe/tech-trend-emporium-test-develop:${{ github.sha }}
+            oswe/tech-trend-emporium-test-develop:latest
           build-args: |
-            CONFIGURATION=production
+            CONFIGURATION=development
       - name: Send mail
         if: always()
         uses: dawidd6/action-send-mail@v3
