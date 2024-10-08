@@ -1,0 +1,17 @@
+on:
+    push:
+      branches: ["main"]
+jobs:
+  CI-main:
+    name: CI-main
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - name: install dependencies
+        uses: npm ci
+      - name: Run tests
+        uses: npm run test:ci
+      - name: Build
+        uses: npm run build
+        
