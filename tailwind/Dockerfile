@@ -1,17 +1,19 @@
-FROM node:latest AS build
+FROM node:latest as build
 
 WORKDIR /app
 
-COPY package.json /app
+COPY package*.json ./
 
-RUN npm i
+RUN npm install
+
+RUN npm install -g @angular/cli
 
 COPY . .
 
-RUN npm run build --prod
+RUN ng build --configuration=production
 
-FROM nginx:latest 
+FROM nginx:latest
 
-COPY --from=build /app/dist/tailwind /usr/share/nginx/html
+COPY --from=build app/dist/tailwind/browser /usr/share/nginx/html
 
-
+EXPOSE 80
