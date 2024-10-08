@@ -29,7 +29,8 @@ jobs:
           tags: |
             oswe/tech-trend-emporium-test-prod:${{ github.sha }}
             oswe/tech-trend-emporium-test-prod:latest
-        
+          build-args: |
+            CONFIGURATION=local
       - name: Send mail
         if: always()
         uses: dawidd6/action-send-mail@v3
