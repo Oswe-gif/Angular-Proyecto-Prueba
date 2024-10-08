@@ -18,4 +18,5 @@ jobs:
         working-directory: ./tailwind
       - name: Build
         run: npm run build
+        working-directory: ./tailwind
         
