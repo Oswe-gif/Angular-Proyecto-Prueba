@@ -2,8 +2,8 @@ on:
     push:
       branches: ["main"]
 jobs:
-  CI-main:
-    name: CI-main
+  CI-mainn:
+    name: CI-mainn
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
