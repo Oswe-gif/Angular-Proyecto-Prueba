@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-      - name: install dependencies
+      - name: Install dependencies
         run: npm ci
         working-directory: ./tailwind
       - name: Run tests
@@ -26,6 +26,6 @@ jobs:
           file: ./tailwind/Dockerfile
           push: true
           tags: |
-            oswe/tech-trend-emporium-TEST-prod:${{ github.sha }}
-            oswe/tech-trend-emporium-TEST-prod:latest
+            oswe/tech-trend-emporium-test-prod:${{ github.sha }}
+            oswe/tech-trend-emporium-test-prod:latest
         
