@@ -8,12 +8,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with:
-            cache-dependency-path: ./tailwind/package-lock.json
+        #with:
+            #cache-dependency-path: ./tailwind/package-lock.json
       - name: install dependencies
         run: npm ci
       - name: Run tests
         run: npm run test:ci
+        working-directory: ./tailwind
       - name: Build
         run: npm run build
         
