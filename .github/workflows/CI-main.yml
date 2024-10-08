@@ -14,9 +14,6 @@ jobs:
       - name: Run tests
         run: npm run test:ci
         working-directory: ./tailwind
-      - name: Build
-        run: npm run build
-        working-directory: ./tailwind
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
@@ -29,6 +26,6 @@ jobs:
           file: ./tailwind/Dockerfile
           push: true
           tags: |
-            oswe/tech-trend-emporium-fronted-prod:${{ github.sha }}
-            oswe/tech-trend-emporium-fronted-prod:latest
+            oswe/tech-trend-emporium-TEST-prod:${{ github.sha }}
+            oswe/tech-trend-emporium-TEST-prod:latest
         
