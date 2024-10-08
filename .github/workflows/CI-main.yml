@@ -2,18 +2,16 @@ on:
     push:
       branches: ["main"]
 jobs:
-  CI-mainn:
-    name: CI-mainn
+  CI-main:
+    name: CI-main
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with:
-            node-version: 20
       - name: install dependencies
-        uses: npm ci
+        run: npm ci
       - name: Run tests
-        uses: npm run test:ci
+        run: npm run test:ci
       - name: Build
-        uses: npm run build
+        run: npm run build
         
